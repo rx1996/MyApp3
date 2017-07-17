@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">良仓</string>
+    <string name="daren_xihuan">喜欢\n%1$s</string>
+    <string name="daren_tuijian">推荐\n%1$s</string>
+    <string name="daren_guanzhu">关注\n%1$s</string>
+    <string name="daren_fensi">粉丝\n%1$s</string>
+</resources>

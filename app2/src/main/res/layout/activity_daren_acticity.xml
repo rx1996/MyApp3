@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_daren_acticity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#44000000"
+    tools:context="myapplication.liangcang.daren.activity.DarenActicity">
+    <include layout="@layout/base_title_back"/>
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="105dp">
+        <ImageView
+            android:id="@+id/daren_icon"
+            android:padding="5dp"
+            android:background="@mipmap/ic_launcher"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/daren_icon"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_name"
+                android:lines="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="名字"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/tv_duty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="职业"
+                android:lines="1"
+                android:textColor="#55000000"
+                android:textSize="15sp" />
+        </LinearLayout>
+       <LinearLayout
+          android:layout_marginBottom="5dp"
+           android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+           android:orientation="horizontal"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+           <Button
+               android:id="@+id/btn_guanzhu"
+               android:text="关注"
+               android:layout_marginRight="8dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+           <Button
+               android:layout_marginRight="5dp"
+               android:id="@+id/btn_sixin"
+               android:text="私信"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+       </LinearLayout>
+    </RelativeLayout>
+
+
+
+
+    <RadioGroup
+        android:id="@+id/rg_main"
+        android:layout_gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_gravity="center_vertical"
+            android:id="@+id/xihuan"
+            style="@style/MainButtonStyle"
+            android:text="@string/daren_xihuan" />
+
+        <RadioButton
+
+            android:id="@+id/tuijian"
+            style="@style/MainButtonStyle"
+            android:text="@string/daren_tuijian" />
+
+        <RadioButton
+            android:id="@+id/guanzhu"
+            style="@style/MainButtonStyle"
+            android:text="@string/daren_xihuan" />
+
+        <RadioButton
+            android:id="@+id/fensi"
+            style="@style/MainButtonStyle"
+            android:text="@string/daren_fensi" />
+
+    </RadioGroup>
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>
