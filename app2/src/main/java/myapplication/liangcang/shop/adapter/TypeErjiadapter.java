@@ -1,10 +1,12 @@
 package myapplication.liangcang.shop.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -16,6 +18,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import myapplication.liangcang.R;
+import myapplication.liangcang.shop.activity.ShopInformationActivity;
 import myapplication.liangcang.shop.bean.TypeErjiInfo;
 
 /**
@@ -26,6 +29,7 @@ public class TypeErjiadapter extends RecyclerView.Adapter<TypeErjiadapter.MyView
     private final Context context;
     private final List<TypeErjiInfo.DataBean.ItemsBean> datas;
 
+
     public TypeErjiadapter(Context context, List<TypeErjiInfo.DataBean.ItemsBean> datas) {
         this.context = context;
         this.datas = datas;
@@ -33,14 +37,14 @@ public class TypeErjiadapter extends RecyclerView.Adapter<TypeErjiadapter.MyView
     }
 
     @Override
-    public TypeErjiadapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View item = View.inflate(context, R.layout.item_shop_type_erji, null);
-        TypeErjiadapter.MyViewHolder view = new TypeErjiadapter.MyViewHolder(item);
+        MyViewHolder view = new MyViewHolder(item);
         return view;
     }
 
     @Override
-    public void onBindViewHolder(TypeErjiadapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
         String imageUrl = datas.get(position).getGoods_image();
         Glide.with(context)
                 .load(imageUrl)
@@ -55,6 +59,14 @@ public class TypeErjiadapter extends RecyclerView.Adapter<TypeErjiadapter.MyView
 
 //        holder.itemView.setTag(datas.get(position));
 //        holder.itemView.setOnClickListener(this);
+        holder.llShangpinPrice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,ShopInformationActivity.class);
+                intent.putExtra("id",datas.get(position).getGoods_id());
+                context.startActivity(intent);
+            }
+        });
     }
 
 
@@ -80,6 +92,8 @@ public class TypeErjiadapter extends RecyclerView.Adapter<TypeErjiadapter.MyView
         TextView giftLike;
         @Bind(R.id.rl_price)
         RelativeLayout rlPrice;
+        @Bind(R.id.ll_shangpin_price)
+        LinearLayout llShangpinPrice;
 
         public MyViewHolder(View itemView) {
             super(itemView);
