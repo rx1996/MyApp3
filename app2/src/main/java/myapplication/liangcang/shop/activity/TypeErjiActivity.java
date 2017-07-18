@@ -40,7 +40,7 @@ public class TypeErjiActivity extends BaseActivity {
     RecyclerView erjiRecyclerView;
     @Bind(R.id.activity_type_erji)
     LinearLayout activityTypeErji;
-    private String id;
+    private int id;
     private String name;
 
     private String url;
@@ -53,11 +53,18 @@ public class TypeErjiActivity extends BaseActivity {
 
     @Override
     public void initData() {
-        id = getIntent().getStringExtra("id");
+        id = Integer.parseInt(getIntent().getStringExtra("id"));
         //name = getIntent().getStringExtra("name");
-        url = "http://mobile.iliangcang.com/goods/goodsShare?app_key=" +
-                "Android&cat_code=00"+id+"&count=10&coverId=1&page=1&sig="
-                + "6E1DEF1DAFF84909ECD98F32FE6CDAD5%7C536890620070968&v=1.0";
+        if(id<100) {
+            url = "http://mobile.iliangcang.com/goods/goodsShare?app_key=" +
+                    "Android&cat_code=00"+id+"&count=10&coverId=1&page=1&sig="
+                    + "6E1DEF1DAFF84909ECD98F32FE6CDAD5%7C536890620070968&v=1.0";
+        }else {
+            url = "http://mobile.iliangcang.com/goods/goodsShare?app_key=" +
+                    "Android&cat_code=0"+id+"&count=10&coverId=1&page=1&sig="
+                    + "6E1DEF1DAFF84909ECD98F32FE6CDAD5%7C536890620070968&v=1.0";
+        }
+
         getDataFromNet(url);
     }
 
