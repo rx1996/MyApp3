@@ -40,61 +40,61 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </RelativeLayout>
-    <LinearLayout
-        android:layout_below="@id/rl_title"
-        android:background="#44000000"
-        android:id="@+id/ll_fenlei"
-        android:visibility="visible"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/tv_moren"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="默认推荐"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
+    <!--<LinearLayout-->
+        <!--android:layout_below="@id/rl_title"-->
+        <!--android:background="#44000000"-->
+        <!--android:id="@+id/ll_fenlei"-->
+        <!--android:visibility="visible"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+        <!--<TextView-->
+            <!--android:id="@+id/tv_moren"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:text="默认推荐"-->
+            <!--android:textColor="@android:color/black"-->
+            <!--android:textSize="18sp" />-->
 
-        <TextView
-            android:id="@+id/tv_zuiduo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="最多推荐"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
+        <!--<TextView-->
+            <!--android:id="@+id/tv_zuiduo"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:text="最多推荐"-->
+            <!--android:textColor="@android:color/black"-->
+            <!--android:textSize="18sp" />-->
 
-        <TextView
-            android:id="@+id/tv_huanying"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="最受欢迎"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
+        <!--<TextView-->
+            <!--android:id="@+id/tv_huanying"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:text="最受欢迎"-->
+            <!--android:textColor="@android:color/black"-->
+            <!--android:textSize="18sp" />-->
 
-        <TextView
-            android:id="@+id/tv_zuixin_tuijian"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="最新推荐"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
+        <!--<TextView-->
+            <!--android:id="@+id/tv_zuixin_tuijian"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:text="最新推荐"-->
+            <!--android:textColor="@android:color/black"-->
+            <!--android:textSize="18sp" />-->
 
-        <TextView
-            android:id="@+id/tv_zuixin_jiaru"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="最新加入"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
+        <!--<TextView-->
+            <!--android:id="@+id/tv_zuixin_jiaru"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:text="最新加入"-->
+            <!--android:textColor="@android:color/black"-->
+            <!--android:textSize="18sp" />-->
 
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
     <GridView
         android:layout_below="@id/rl_title"
         android:id="@+id/gv_daren"

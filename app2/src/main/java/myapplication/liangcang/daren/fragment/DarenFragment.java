@@ -49,24 +49,19 @@ public class DarenFragment extends BaseFragment {
     ImageView ibDarenFenlei;
     @Bind(R.id.rl_title)
     RelativeLayout rlTitle;
-    @Bind(R.id.tv_moren)
-    TextView tvMoren;
-    @Bind(R.id.tv_zuiduo)
-    TextView tvZuiduo;
-    @Bind(R.id.tv_huanying)
-    TextView tvHuanying;
-    @Bind(R.id.tv_zuixin_tuijian)
-    TextView tvZuixinTuijian;
-    @Bind(R.id.tv_zuixin_jiaru)
-    TextView tvZuixinJiaru;
-    @Bind(R.id.ll_fenlei)
-    LinearLayout llFenlei;
     private DarenAdapter adapter;
     private List<DarenInfo.DataBean.ItemsBean> datas;
     private List<DarenInfo.DataBean.ItemsBean.UserImagesBean> images;
 
     private static final int DAREN_FENLEI = 1;
     private static final int ACTION_COMPLETE = 2;
+    private PopupWindow mPopupWindow;
+    private LinearLayout llFenlei;
+    private TextView tvMoRen;
+    private TextView tvZuiDuo;
+    private TextView tvHuanYing;
+    private TextView tvTuiJian;
+    private TextView tvJiaRu;
 
     @Override
     public View initView() {
@@ -153,53 +148,61 @@ public class DarenFragment extends BaseFragment {
     private void showPopupWindow(View view) {
         ibDarenFenlei.setTag(ACTION_COMPLETE);
         ibDarenFenlei.setImageResource(R.drawable.abc_ic_clear_mtrl_alpha);
+        final View popupView = LayoutInflater.from(mContext).inflate(R.layout.pop_daren, null);
+        llFenlei = (LinearLayout) popupView.findViewById(R.id.ll_fenlei);
+        tvMoRen = (TextView) popupView.findViewById(R.id.tv_moren);
+        tvZuiDuo = (TextView) popupView.findViewById(R.id.tv_zuiduo);
+        tvHuanYing = (TextView) popupView.findViewById(R.id.tv_huanying);
+        tvTuiJian = (TextView) popupView.findViewById(R.id.tv_zuixin_tuijian);
+        tvJiaRu = (TextView) popupView.findViewById(R.id.tv_zuixin_jiaru);
         llFenlei.setVisibility(View.VISIBLE);
-        tvZuiduo.setOnClickListener(new View.OnClickListener() {
+        tvZuiDuo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String url = "http://mobile.iliangcang.com/user/masterList?app_key=Android&count=18&orderby=goods_sum&page=1&sig=05D2057FE3D726A43A94505807516FC3%7C136072130089168&v=1.0";
                 OkHttpUtils.get().url(url).build().execute(new MyStringCallback());
 
                 ibDarenFenlei.setImageResource(R.drawable.actionbar_navigation_menu);
-                llFenlei.setVisibility(View.GONE);
+                mPopupWindow.dismiss();
             }
         });
-        tvHuanying.setOnClickListener(new View.OnClickListener() {
+        tvHuanYing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String url = "http://mobile.iliangcang.com/user/masterList?app_key=Android&count=18&orderby=followers&page=9&sig=05D2057FE3D726A43A94505807516FC3|136072130089168&v=1.0";
                 OkHttpUtils.get().url(url).build().execute(new MyStringCallback());
                 ibDarenFenlei.setImageResource(R.drawable.actionbar_navigation_menu);
-                llFenlei.setVisibility(View.GONE);
+                mPopupWindow.dismiss();
             }
         });
-        tvZuixinTuijian.setOnClickListener(new View.OnClickListener() {
+        tvTuiJian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String url = "http://mobile.iliangcang.com/user/masterList?app_key=Android&count=18&orderby=reg_time&page=9&sig=05D2057FE3D726A43A94505807516FC3|136072130089168&v=1.0";
                 OkHttpUtils.get().url(url).build().execute(new MyStringCallback());
                 ibDarenFenlei.setImageResource(R.drawable.actionbar_navigation_menu);
-                llFenlei.setVisibility(View.GONE);
+                mPopupWindow.dismiss();
             }
         });
-        tvZuixinJiaru.setOnClickListener(new View.OnClickListener() {
+        tvJiaRu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String url = "http://mobile.iliangcang.com/user/masterList?app_key=Android&count=18&orderby=action_time&page=9&sig=05D2057FE3D726A43A94505807516FC3|136072130089168&v=1.0";
                 OkHttpUtils.get().url(url).build().execute(new MyStringCallback());
                 ibDarenFenlei.setImageResource(R.drawable.actionbar_navigation_menu);
-                llFenlei.setVisibility(View.GONE);
+                mPopupWindow.dismiss();
             }
         });
-//        popupWindow.setTouchable(true);
-//        popupWindow.setTouchInterceptor(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                return false;
-//            }
-//        });
-//        popupWindow.setBackgroundDrawable(new ColorDrawable(0x00000000));
-//        popupWindow.showAsDropDown(view);
+       mPopupWindow = new PopupWindow(popupView, GridView.LayoutParams.MATCH_PARENT, GridView.LayoutParams.WRAP_CONTENT, true);
+        mPopupWindow.setTouchable(true);
+        mPopupWindow.setTouchInterceptor(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return false;
+            }
+        });
+        mPopupWindow.setBackgroundDrawable(new ColorDrawable(0x00000000));
+        mPopupWindow.showAsDropDown(view);
     }
 
 }
