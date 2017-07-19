@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/darker_gray"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_zazhi_image"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:paddingBottom="10dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tv_zazhi_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="想象力比知识重要，爱因斯坦童年最爱玩的积木"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/tv_zazhi_feilei"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_zazhi_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="-视频-"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:background="#000000"
+        android:text="-JUL.18-"
+        android:id="@+id/tv_date"
+        android:textColor="@android:color/holo_blue_dark"
+        android:gravity="center"
+        android:layout_below="@id/iv_zazhi_image"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+</RelativeLayout>

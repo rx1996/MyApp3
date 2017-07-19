@@ -27,7 +27,7 @@ public class Constants {
     public static String BASE_URL_SHOP_GIF_PARENT="http://mobile.iliangcang.com/goods/goodsList?app_key=Android&count=10&list_id=6&page=1&sig=73760B2740FA36D5A273523FBC9295FE%7C285269230036268&v=1.0";
     public static String BASE_URL_FENXIANG_DUANZI="http://s.budejie.com/topic/tag-topic/64/hot/budejie-android-6.6.3/0-20.json";
     public static String BASE_URL_FENXIANG_TUIJIAN="http://s.budejie.com/topic/list/jingxuan/1/budejie-android-6.6.3/0-20.json";
-    public  static  String BASE_URL_ZAZHI="http://mobile.iliangcang.com/topic/magazineList?app_key=Android&author_id=1&sig=2FA0974FFF1BC3DFA562AA63C8B5A84F%7C118265010131868&v=1.0";
+    public  static  String BASE_URL_ZAZHI="http://mobile.iliangcang.com/topic/magazineList?app_key=Android&sig=1EC88F51A8AC94B7B3E2979EAF4CE171%7C720047010493468&v=1.0";
     public static  String BASE_URL_DAREN_XIANGQING="http://mobile.iliangcang.com/user/masterFollowed?app_key=Android&count=12&owner_id=999998864&page=1&sig=BF287AF953103F390674E73DDA18CFD8%7C639843030233268&v=1.0";
     public static  String BASE_URL_DAREN_FENSI="http://mobile.iliangcang.com/user/masterFollowed?app_key=Android&count=12&owner_id=999998864&page=1&sig=BF287AF953103F390674E73DDA18CFD8%7C639843030233268&v=1.0";
     public static  String BASE_URL_DAREN_XIHUAN="http://mobile.iliangcang.com/user/masterLike?app_key=Android&count=10&owner_id=85&page=1&sig=CD0E234053E25DD6111E3DBD450A4B85%7C954252010968868&v=1.0";
