@@ -1,8 +1,11 @@
 package myapplication.liangcang.geren.fragment;
 
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import butterknife.Bind;
@@ -17,18 +20,31 @@ import myapplication.liangcang.base.BaseFragment;
 public class GerenFragment extends BaseFragment {
 
 
-    @Bind(R.id.base_title)
-    TextView baseTitle;
-    @Bind(R.id.base_search)
-    ImageView basesearch;
-    @Bind(R.id.base_shop)
-    ImageView baseShop;
-    @Bind(R.id.fl_geren)
-    FrameLayout fl_geren;
+    @Bind(R.id.iv_setting)
+    ImageView ivSetting;
+    @Bind(R.id.rl_title)
+    RelativeLayout rlTitle;
+    @Bind(R.id.iv_photo_image)
+    ImageView ivPhotoImage;
+    @Bind(R.id.tv_name)
+    TextView tvName;
+    @Bind(R.id.tv_my_dingdan)
+    TextView tvMyDingdan;
+    @Bind(R.id.tv_my_hongbao)
+    TextView tvMyHongbao;
+    @Bind(R.id.rl1)
+    RelativeLayout rl1;
+    @Bind(R.id.tv_wish)
+    TextView tvWish;
+    @Bind(R.id.tv_news)
+    TextView tvNews;
+    @Bind(R.id.tv_address)
+    TextView tvAddress;
+    @Bind(R.id.tv_service)
+    TextView tvService;
 
     @Override
     public void initTitle() {
-        baseTitle.setText("个人");
     }
 
     @Override
@@ -40,6 +56,9 @@ public class GerenFragment extends BaseFragment {
     }
 
 
-
-
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
+    }
 }
