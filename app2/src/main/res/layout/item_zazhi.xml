@@ -17,7 +17,7 @@
         android:id="@+id/tv_zazhi_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_marginTop="70dp"
         android:gravity="center"
         android:text="想象力比知识重要，爱因斯坦童年最爱玩的积木"
         android:textColor="@android:color/white" />

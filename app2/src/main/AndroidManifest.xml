@@ -34,7 +34,8 @@
         <activity android:name=".shop.activity.ShopGiftParentActivity" />
         <activity android:name=".daren.activity.DarenActicity" />
         <activity android:name=".shop.activity.GoodsActivity" />
-        <activity android:name=".shop.activity.ShopInformationActivity"></activity>
+        <activity android:name=".shop.activity.ShopInformationActivity" />
+        <activity android:name=".zazhi.activity.ZazhiXinxiActivity"></activity>
     </application>
 
 </manifest>

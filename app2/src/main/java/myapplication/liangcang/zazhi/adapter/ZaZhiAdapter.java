@@ -1,6 +1,8 @@
 package myapplication.liangcang.zazhi.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -15,6 +17,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import myapplication.liangcang.R;
+import myapplication.liangcang.zazhi.activity.ZazhiXinxiActivity;
 import myapplication.liangcang.zazhi.bean.ZaZhiInfo;
 
 /**
@@ -47,7 +50,7 @@ public class ZaZhiAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
         if (convertView == null) {
             convertView = View.inflate(mContext, R.layout.item_zazhi, null);
@@ -66,6 +69,15 @@ public class ZaZhiAdapter extends BaseAdapter {
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(viewHolder.ivZazhiImage);
         viewHolder.tvDate.setText(info.getAddtime());
+        viewHolder.ivZazhiImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext,ZazhiXinxiActivity.class);
+                intent.setData(Uri.parse(datas.get(position).getTopic_url()));
+                intent.putExtra("biaoti",datas.get(position).getTopic_name());
+                mContext.startActivity(intent);
+            }
+        });
         return convertView;
     }
 
