@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -66,7 +67,7 @@ public class ShopInformationActivity extends BaseActivity {
     @Bind(R.id.rg_main)
     RadioGroup rgMain;
     @Bind(R.id.activity_shop_information)
-    ScrollView activityShopInformation;
+    RelativeLayout activityShopInformation;
     private String url;
     private int id;
     private Fragment tempFragment;
@@ -139,6 +140,7 @@ public class ShopInformationActivity extends BaseActivity {
 
         bundle.putString("url", url);
         Log.e("TAG", "url=="+ bean.getData().getItems().getGoods_url());
+        bundle.putString("goods_id",bean.getData().getItems().getGoods_id());
 
 
         //设置默认选择首页

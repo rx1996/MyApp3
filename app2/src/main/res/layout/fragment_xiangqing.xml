@@ -50,4 +50,43 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center_vertical"
+            android:background="@android:color/holo_blue_dark"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="1dip"/>
+
+        <TextView
+            android:text="猜你喜欢"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center_vertical"
+            android:background="@android:color/holo_blue_dark"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="1dip"/>
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/gv"
+        android:layout_marginTop="10dp"
+        android:numColumns="auto_fit"
+        android:layout_width="match_parent"
+        android:layout_height="600dp">
+
+    </GridView>
+
 </LinearLayout>
