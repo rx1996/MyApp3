@@ -4,12 +4,10 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -24,22 +22,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import myapplication.liangcang.R;
-import myapplication.liangcang.activity.MainActivity;
 import myapplication.liangcang.base.BaseActivity;
 import myapplication.liangcang.base.BaseFragment;
-import myapplication.liangcang.daren.fragment.DarenFragment;
-import myapplication.liangcang.fenxiang.fragment.FenxiangFragment;
-import myapplication.liangcang.geren.fragment.GerenFragment;
-import myapplication.liangcang.shop.bean.GiftParentInfo;
 import myapplication.liangcang.shop.bean.ShopInformationBean;
-import myapplication.liangcang.shop.fragment.ShopChanpinFragment;
-import myapplication.liangcang.shop.fragment.ShopFragment;
-import myapplication.liangcang.shop.fragment.ShopGushiFragment;
+import myapplication.liangcang.shop.fragment.GouwuXuzhiFragment;
+import myapplication.liangcang.shop.fragment.ShopXiangqingFragment;
 import myapplication.liangcang.utils.GlideImageLoader;
-import myapplication.liangcang.zazhi.fragment.ZaZhiFragment;
 import okhttp3.Call;
 
 public class ShopInformationActivity extends BaseActivity {
@@ -83,26 +72,78 @@ public class ShopInformationActivity extends BaseActivity {
     private Fragment tempFragment;
     private int position = 0;
     private ArrayList<BaseFragment> fragments;
+
+    private ShopXiangqingFragment xiangqingFragment;
+    private GouwuXuzhiFragment xuzhiFragment;
+    private ShopInformationBean bean;
     @Override
     public void initListener() {
+        //设置RadioGroup的选中监听
+        rgMain.setOnCheckedChangeListener(new MyOnCheckedChangeListener());
+    }
 
+    @Override
+    public void initView() {
+        super.initView();
+        initFragment();
     }
 
     @Override
     public void initData() {
         id = Integer.parseInt(getIntent().getStringExtra("id"));
-        url = "http://mobile.iliangcang.com/goods/goodsDetail?app_key=Android&goods_id="+id+"&sig=BF287AF953103F390674E73DDA18CFD8%7C639843030233268&v=1.0";
+        url = "http://mobile.iliangcang.com/goods/goodsDetail?app_key=Android&goods_id="+id+"&sig=1EC88F51A8AC94B7B3E2979EAF4CE171%7C720047010493468&v=1.0";
         OkHttpUtils.get()
                 .url(url)
                 .build()
                 .execute(new MyStringCallback());
-        initFragment();
+    }
 
-        //设置RadioGroup的选中监听
-        rgMain.setOnCheckedChangeListener(new MyOnCheckedChangeListener());
+    class MyStringCallback extends StringCallback {
+        @Override
+        public void onError(Call call, Exception e, int id) {
+            Log.e("TAG", "请求失败==" + e.getMessage());
+        }
+
+        @Override
+        public void onResponse(String response, int id) {
+            Log.e("TAG", "商品详情请求成功==");
+            processData(response);
+        }
+    }
+
+    FragmentTransaction ft;
+    private void processData(String json) {
+        bean = JSON.parseObject(json, ShopInformationBean.class);
+        tvPrice.setText("￥"+bean.getData().getItems().getPrice());
+        tvName.setText(bean.getData().getItems().getOwner_name());
+        tvLikeNum.setText(bean.getData().getItems().getLike_count());
+        Glide.with(this)
+                .load(bean.getData().getItems().getHeadimg())
+                .placeholder(R.drawable.ic_login_logo)
+                .error(R.drawable.ic_login_logo)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(ivImage);
+//        Glide.with(this)
+//                .load(bean.getData().getItems().getImages_item())
+//                .placeholder(R.drawable.ic_login_logo)
+//                .error(R.drawable.ic_login_logo)
+//                .diskCacheStrategy(DiskCacheStrategy.ALL)
+//                .into(banner);
+        List<String> images = new ArrayList<>();
+        for(int i = 0; i < bean.getData().getItems().getImages_item().size(); i++) {
+            images.add(bean.getData().getItems().getImages_item().get(i));
+        }
+        banner.setImages(images).setImageLoader(new GlideImageLoader()).start();
+        tvName2.setText(bean.getData().getItems().getOwner_name());
+
+
+        bundle.putString("url", url);
+        Log.e("TAG", "url=="+ bean.getData().getItems().getGoods_url());
+
 
         //设置默认选择首页
         rgMain.check(R.id.rb_gushi);
+
     }
     class MyOnCheckedChangeListener implements RadioGroup.OnCheckedChangeListener{
 
@@ -123,7 +164,7 @@ public class ShopInformationActivity extends BaseActivity {
     }
     private void switchFragment(Fragment currentFragment) {
         if(currentFragment != tempFragment){//不是同一个
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+             ft = getSupportFragmentManager().beginTransaction();
 
             if(!currentFragment.isAdded()){
 
@@ -154,47 +195,19 @@ public class ShopInformationActivity extends BaseActivity {
     }
     private void initFragment() {
         fragments = new ArrayList<>();
-        fragments.add(new ShopGushiFragment());
-        fragments.add(new ShopChanpinFragment());
-    }
-    class MyStringCallback extends StringCallback {
-        @Override
-        public void onError(Call call, Exception e, int id) {
-            Log.e("TAG", "请求失败==" + e.getMessage());
-        }
+        xiangqingFragment = new ShopXiangqingFragment();
+        xuzhiFragment = new GouwuXuzhiFragment();
+        bundle = new Bundle();
 
-        @Override
-        public void onResponse(String response, int id) {
-            Log.e("TAG", "请求成功==");
-            processData(response);
-        }
-    }
 
-    private void processData(String json) {
-        ShopInformationBean bean = JSON.parseObject(json, ShopInformationBean.class);
-        tvPrice.setText("￥"+bean.getData().getItems().getPrice());
-        tvName.setText(bean.getData().getItems().getOwner_name());
-        tvLikeNum.setText(bean.getData().getItems().getLike_count());
-        Glide.with(this)
-                .load(bean.getData().getItems().getGoods_image())
-                .placeholder(R.drawable.ic_login_logo)
-                .error(R.drawable.ic_login_logo)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(ivImage);
-//        Glide.with(this)
-//                .load(bean.getData().getItems().getImages_item())
-//                .placeholder(R.drawable.ic_login_logo)
-//                .error(R.drawable.ic_login_logo)
-//                .diskCacheStrategy(DiskCacheStrategy.ALL)
-//                .into(banner);
-        List<String> images = new ArrayList<>();
-        for(int i = 0; i < bean.getData().getItems().getImages_item().size(); i++) {
-            images.add(bean.getData().getItems().getImages_item().get(i));
-        }
-        banner.setImages(images).setImageLoader(new GlideImageLoader()).start();
-        tvName2.setText(bean.getData().getItems().getOwner_name());
-    }
+        xiangqingFragment.setArguments(bundle);
+        xuzhiFragment.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().commit();
+        fragments.add(xiangqingFragment);
+        fragments.add(xuzhiFragment);
 
+    }
+    Bundle bundle;
     @Override
     public int getLayoutId() {
         return R.layout.activity_shop_information;

@@ -11,7 +11,7 @@ import myapplication.liangcang.base.BaseFragment;
  * Created by Administrator on 2017/7/18.
  */
 
-public class ShopGushiFragment extends BaseFragment {
+public class GouwuXuzhiFragment extends BaseFragment {
     private TextView textView;
     @Override
     public View initView() {
@@ -25,7 +25,7 @@ public class ShopGushiFragment extends BaseFragment {
     @Override
     public void initData() {
         super.initData();
-        textView.setText("故事内容");
+        textView.setText("产品内容");
     }
 
     @Override
