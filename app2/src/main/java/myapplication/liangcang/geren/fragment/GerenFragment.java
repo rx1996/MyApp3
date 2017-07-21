@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -28,20 +29,20 @@ public class GerenFragment extends BaseFragment {
     ImageView ivPhotoImage;
     @Bind(R.id.tv_name)
     TextView tvName;
-    @Bind(R.id.tv_my_dingdan)
-    TextView tvMyDingdan;
-    @Bind(R.id.tv_my_hongbao)
-    TextView tvMyHongbao;
+    @Bind(R.id.ll_dingdan)
+    LinearLayout llDingdan;
+    @Bind(R.id.ll_hongbao)
+    LinearLayout llHongbao;
     @Bind(R.id.rl1)
     RelativeLayout rl1;
-    @Bind(R.id.tv_wish)
-    TextView tvWish;
-    @Bind(R.id.tv_news)
-    TextView tvNews;
-    @Bind(R.id.tv_address)
-    TextView tvAddress;
-    @Bind(R.id.tv_service)
-    TextView tvService;
+    @Bind(R.id.ll_wish)
+    LinearLayout llWish;
+    @Bind(R.id.ll_news)
+    LinearLayout llNews;
+    @Bind(R.id.ll_address)
+    LinearLayout llAddress;
+    @Bind(R.id.ll_service)
+    LinearLayout llService;
 
     @Override
     public void initTitle() {
@@ -49,7 +50,6 @@ public class GerenFragment extends BaseFragment {
 
     @Override
     public View initView() {
-
         View view = View.inflate(mContext, R.layout.fragment_geren, null);
         ButterKnife.bind(this, view);
         return view;

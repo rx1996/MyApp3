@@ -52,6 +52,12 @@ public class TypeErjiActivity extends BaseActivity {
     }
 
     @Override
+    public void initView() {
+        super.initView();
+        tvTitleBiaoti.setText("商店");
+    }
+
+    @Override
     public void initData() {
         id = Integer.parseInt(getIntent().getStringExtra("id"));
         //name = getIntent().getStringExtra("name");

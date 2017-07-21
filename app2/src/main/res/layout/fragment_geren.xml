@@ -45,7 +45,7 @@
             android:layout_height="wrap_content" />
         <TextView
             android:layout_below="@id/iv_photo_image"
-            android:text="aaaaa"
+            android:text="登录/注册"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:id="@+id/tv_name"
@@ -59,26 +59,49 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
-                android:text="我的订单"
-                android:id="@+id/tv_my_dingdan"
-                android:layout_weight="1"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:textColor="#ffffff"
+            <LinearLayout
+                android:id="@+id/ll_dingdan"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/frame"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:text="我的红包"
-                android:id="@+id/tv_my_hongbao"
-                android:textSize="20sp"
-                android:layout_weight="1"
-                android:textColor="#ffffff"
                 android:gravity="center"
-                android:background="@drawable/frame"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_self_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="我的订单"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_hongbao"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/frame"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_self_bonus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="我的红包"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
     <RelativeLayout
@@ -110,46 +133,90 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:id="@+id/ll_wish"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_my_wish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:text="我的心愿单"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
 
-            <TextView
-                android:layout_weight="1"
-                android:id="@+id/tv_wish"
-                android:text="我的心愿单"
+            <LinearLayout
+                android:id="@+id/ll_news"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
                 android:layout_weight="1"
-                android:id="@+id/tv_news"
-                android:text="我的消息"
-                android:layout_gravity="center"
-                android:gravity="center"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_my_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:text="我的消息"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
         </LinearLayout>
         <LinearLayout
             android:layout_weight="1"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/tv_address"
-                android:layout_weight="1"
-                android:text="地址管理"
+            <LinearLayout
+                android:id="@+id/ll_address"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:id="@+id/tv_service"
                 android:layout_weight="1"
-                android:text="良仓客服"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_addr_manage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:text="地址管理"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_service"
                 android:layout_gravity="center"
                 android:gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_custom_service"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:text="良仓客服"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
