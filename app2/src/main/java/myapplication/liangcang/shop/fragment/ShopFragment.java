@@ -16,6 +16,7 @@ import myapplication.liangcang.activity.LoginActivity;
 import myapplication.liangcang.activity.MainActivity;
 import myapplication.liangcang.activity.SearchActivity;
 import myapplication.liangcang.base.BaseFragment;
+import myapplication.liangcang.common.ShopCatActivity;
 import myapplication.liangcang.shop.adapter.ShopFragmentAdapter;
 
 /**
@@ -60,7 +61,7 @@ public class ShopFragment extends BaseFragment {
         baseFragments.add(new SpecialFragment());
         baseFragments.add(new GiftFragment());
 
-        MainActivity mainActivity = (MainActivity) mContext;
+        final MainActivity mainActivity = (MainActivity) mContext;
         //设置适配器
         pagerAdapter = new ShopFragmentAdapter(mainActivity.getSupportFragmentManager(), baseFragments);
         viewPager.setAdapter(pagerAdapter);
@@ -74,7 +75,8 @@ public class ShopFragment extends BaseFragment {
         baseshop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(mContext,LoginActivity.class));
+//                startActivity(new Intent(mContext,LoginActivity.class));
+                startActivity(new Intent(mContext,ShopCatActivity.class));
             }
         });
     }
