@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_order"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="myapplication.liangcang.geren.activity.OrderActivity">
+
+    <RelativeLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#333131">
+        <ImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/iv_shopcat_back"
+            android:background="@drawable/actionbar_navigation_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="1"
+            android:text="我的订单"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_shopcart_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="客服"
+            android:textColor="#fff" />
+    </RelativeLayout>
+
+    <View
+        android:background="#675757"
+        android:layout_width="match_parent"
+        android:layout_height="5dip"/>
+    <RadioGroup
+        android:id="@+id/rg_main"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/rb_quanbu"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="全部"
+            android:background="@drawable/pinpai_gushi"
+            android:textColor="@drawable/gushi_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/rb_daifukuan"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="待付款"
+            android:background="@drawable/pinpai_gushi"
+            android:textColor="@drawable/gushi_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/rb_daifahuo"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="待发货"
+            android:background="@drawable/pinpai_gushi"
+            android:textColor="@drawable/gushi_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/rb_yifahuo"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="已发货"
+            android:background="@drawable/pinpai_gushi"
+            android:textColor="@drawable/gushi_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+</LinearLayout>

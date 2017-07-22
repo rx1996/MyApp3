@@ -17,6 +17,7 @@ import butterknife.OnClick;
 import myapplication.liangcang.R;
 import myapplication.liangcang.activity.LoginActivity;
 import myapplication.liangcang.base.BaseFragment;
+import myapplication.liangcang.geren.activity.OrderActivity;
 
 /**
  * Created by zhouzhou on 2017/7/6.
@@ -77,6 +78,7 @@ public class GerenFragment extends BaseFragment {
                 startActivity(new Intent(mContext, LoginActivity.class));
                 break;
             case R.id.ll_dingdan:
+                startActivity(new Intent(mContext,OrderActivity.class));
                 break;
             case R.id.ll_hongbao:
                 break;

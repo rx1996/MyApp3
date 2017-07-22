@@ -36,7 +36,8 @@
         <activity android:name=".shop.activity.GoodsActivity" />
         <activity android:name=".shop.activity.ShopInformationActivity" />
         <activity android:name=".zazhi.activity.ZazhiXinxiActivity" />
-        <activity android:name=".common.ShopCatActivity"></activity>
+        <activity android:name=".common.ShopCatActivity" />
+        <activity android:name=".geren.activity.OrderActivity"></activity>
     </application>
 
 </manifest>
