@@ -20,6 +20,7 @@ import butterknife.Bind;
 import myapplication.liangcang.R;
 import myapplication.liangcang.activity.LoginActivity;
 import myapplication.liangcang.base.BaseActivity;
+import myapplication.liangcang.common.ShopCatActivity;
 import myapplication.liangcang.shop.adapter.ShopGiftAdapter;
 import myapplication.liangcang.shop.bean.ShopGiftInfo;
 import myapplication.liangcang.utils.Constants;
@@ -53,7 +54,8 @@ public class ShopGiftActivity extends BaseActivity {
         baseShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ShopGiftActivity.this, LoginActivity.class));
+//                startActivity(new Intent(mContext,LoginActivity.class));
+                startActivity(new Intent(ShopGiftActivity.this,ShopCatActivity.class));
             }
         });
     }

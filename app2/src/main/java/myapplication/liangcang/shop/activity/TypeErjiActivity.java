@@ -21,6 +21,7 @@ import butterknife.OnClick;
 import myapplication.liangcang.R;
 import myapplication.liangcang.activity.LoginActivity;
 import myapplication.liangcang.base.BaseActivity;
+import myapplication.liangcang.common.ShopCatActivity;
 import myapplication.liangcang.shop.adapter.TypeErjiadapter;
 import myapplication.liangcang.shop.bean.TypeErjiInfo;
 import okhttp3.Call;
@@ -127,7 +128,8 @@ public class TypeErjiActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.base_shop:
-                startActivity(new Intent(TypeErjiActivity.this, LoginActivity.class));
+//                startActivity(new Intent(TypeErjiActivity.this, LoginActivity.class));
+                startActivity(new Intent(TypeErjiActivity.this, ShopCatActivity.class));
                 break;
             case R.id.rl_shuaixuan:
                 showToast("筛选");
