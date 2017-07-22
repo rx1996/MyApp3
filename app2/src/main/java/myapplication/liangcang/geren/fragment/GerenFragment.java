@@ -1,5 +1,6 @@
 package myapplication.liangcang.geren.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,10 +9,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import myapplication.liangcang.R;
+import myapplication.liangcang.activity.LoginActivity;
 import myapplication.liangcang.base.BaseFragment;
 
 /**
@@ -60,5 +64,30 @@ public class GerenFragment extends BaseFragment {
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.unbind(this);
+    }
+
+
+    @OnClick({R.id.iv_setting, R.id.tv_name, R.id.ll_dingdan, R.id.ll_hongbao, R.id.ll_wish, R.id.ll_news, R.id.ll_address, R.id.ll_service})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.iv_setting:
+                Toast.makeText(mContext, "设置", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.tv_name:
+                startActivity(new Intent(mContext, LoginActivity.class));
+                break;
+            case R.id.ll_dingdan:
+                break;
+            case R.id.ll_hongbao:
+                break;
+            case R.id.ll_wish:
+                break;
+            case R.id.ll_news:
+                break;
+            case R.id.ll_address:
+                break;
+            case R.id.ll_service:
+                break;
+        }
     }
 }
