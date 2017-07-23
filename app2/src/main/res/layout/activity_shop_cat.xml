@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#333131"
-    tools:context="myapplication.liangcang.common.ShopCatActivity">
+    tools:context="myapplication.liangcang.shopcat.activity.ShopCatActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -18,9 +18,8 @@ import java.util.List;
 
 import butterknife.Bind;
 import myapplication.liangcang.R;
-import myapplication.liangcang.activity.LoginActivity;
 import myapplication.liangcang.base.BaseActivity;
-import myapplication.liangcang.common.ShopCatActivity;
+import myapplication.liangcang.shopcat.activity.ShopCatActivity;
 import myapplication.liangcang.shop.adapter.ShopGiftAdapter;
 import myapplication.liangcang.shop.bean.ShopGiftInfo;
 import myapplication.liangcang.utils.Constants;

@@ -12,11 +12,10 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import myapplication.liangcang.R;
-import myapplication.liangcang.activity.LoginActivity;
 import myapplication.liangcang.activity.MainActivity;
 import myapplication.liangcang.activity.SearchActivity;
 import myapplication.liangcang.base.BaseFragment;
-import myapplication.liangcang.common.ShopCatActivity;
+import myapplication.liangcang.shopcat.activity.ShopCatActivity;
 import myapplication.liangcang.shop.adapter.ShopFragmentAdapter;
 
 /**
