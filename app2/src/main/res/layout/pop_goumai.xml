@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:zhy="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@android:color/darker_gray"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_goumai_image"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/ic_launcher"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+        <ImageView
+            android:id="@+id/iv_finish_image"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/tv_name"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:text="贝医生"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/tv_info"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:text="小贝生态链"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tv_price"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="20sp"
+        android:text="￥59.00"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"/>
+    <TextView
+        android:text="数量"
+        android:id="@+id/tv_type_name1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <com.zhy.view.flowlayout.TagFlowLayout
+        android:id="@+id/id_flowlayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        zhy:max_select="1"
+        >
+    </com.zhy.view.flowlayout.TagFlowLayout>
+    <TextView
+        android:text="数量"
+        android:id="@+id/tv_type_name2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <com.zhy.view.flowlayout.TagFlowLayout
+        android:id="@+id/id_flowlayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        zhy:max_select="1"
+        >
+    </com.zhy.view.flowlayout.TagFlowLayout>
+    <TextView
+        android:text="数量"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <myapplication.liangcang.shopcat.view.AddSubView
+        android:id="@+id/AddSubView"
+        app:maxValue="12"
+        app:minValue="1"
+        app:numberAddBackground="@drawable/goods_add_btn"
+        app:numberSubBackground="@drawable/goods_sub_btn"
+        app:value="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </myapplication.liangcang.shopcat.view.AddSubView>
+    <TextView
+        android:text="确定"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:padding="15dp"
+        android:layout_marginTop="100dp"
+        android:background="@android:color/holo_blue_dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

@@ -1,1 +1,1 @@
-include ':app', ':app2', ':PullToRefresh_library', ':SlidingMenu_library', ':ViewPagerIndicator_library'
+include ':app', ':app2', ':PullToRefresh_library', ':SlidingMenu_library', ':ViewPagerIndicator_library', ':flowlayout-lib', ':flowlayout'
