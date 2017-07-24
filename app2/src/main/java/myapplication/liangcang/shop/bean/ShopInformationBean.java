@@ -232,6 +232,15 @@ public class ShopInformationBean {
             private List<String> images_item;
             private List<SkuInvBean> sku_inv;
             private List<GoodsInfoBean> goods_info;
+            private int number = 1;
+
+            public int getNumber() {
+                return number;
+            }
+
+            public void setNumber(int number) {
+                this.number = number;
+            }
 
             public String getGoods_id() {
                 return goods_id;
