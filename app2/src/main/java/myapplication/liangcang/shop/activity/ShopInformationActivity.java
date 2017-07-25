@@ -287,7 +287,7 @@ public class ShopInformationActivity extends BaseActivity {
                 break;
             case R.id.tv_join_shop_cat:
 //                Toast.makeText(ShopInformationActivity.this, "加入购物车", Toast.LENGTH_SHORT).show();
-//                CartStorage.getInstance(MyApplication.getContext()).addData();
+                CartStorage.getInstance(MyApplication.getContext()).addData(bean);
                 setPopupWindow();
 
                 break;

@@ -1,6 +1,7 @@
 package myapplication.liangcang.shopcat.activity;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -9,10 +10,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import butterknife.Bind;
 import butterknife.OnClick;
 import myapplication.liangcang.R;
 import myapplication.liangcang.base.BaseActivity;
+import myapplication.liangcang.common.MyApplication;
+import myapplication.liangcang.shop.bean.ShopInformationBean;
+import myapplication.liangcang.shopcat.utils.CartStorage;
 
 public class ShopCatActivity extends BaseActivity {
 
@@ -48,7 +54,10 @@ public class ShopCatActivity extends BaseActivity {
 
     @Override
     public void initData() {
-
+        ArrayList<ShopInformationBean> allData = CartStorage.getInstance(MyApplication.getContext()).getAllData();
+        for(int i = 0; i < allData.size(); i++) {
+            Log.e("TAG", ""+allData.get(i).toString());
+        }
     }
 
     @Override
