@@ -1,5 +1,6 @@
 package myapplication.liangcang.shop.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -42,7 +43,9 @@ import myapplication.liangcang.common.MyApplication;
 import myapplication.liangcang.shop.bean.ShopInformationBean;
 import myapplication.liangcang.shop.fragment.GouwuXuzhiFragment;
 import myapplication.liangcang.shop.fragment.ShopXiangqingFragment;
+import myapplication.liangcang.shopcat.activity.ShopCatActivity;
 import myapplication.liangcang.shopcat.utils.CartStorage;
+import myapplication.liangcang.shopcat.view.AddSubView;
 import myapplication.liangcang.utils.GlideImageLoader;
 import okhttp3.Call;
 
@@ -86,6 +89,10 @@ public class ShopInformationActivity extends BaseActivity {
     FrameLayout frameLayout;
     @Bind(R.id.iv_service)
     ImageView ivService;
+    @Bind(R.id.iv_back)
+    ImageView ivBack;
+    @Bind(R.id.iv_shop_cat)
+    ImageView ivShopCat;
     @Bind(R.id.tv_join_shop_cat)
     TextView tvJoinShopCat;
     @Bind(R.id.tv_buy)
@@ -109,6 +116,8 @@ public class ShopInformationActivity extends BaseActivity {
     TextView tv_price;
     TextView tv_type_name1;
     TextView tv_type_name2;
+    AddSubView nas_goodinfo_num;
+    TextView bt_goodinfo_confim;
 
     @Override
     public void initListener() {
@@ -131,6 +140,18 @@ public class ShopInformationActivity extends BaseActivity {
                 .url(url)
                 .build()
                 .execute(new MyStringCallback());
+        ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        ivShopCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ShopInformationActivity.this, ShopCatActivity.class));
+            }
+        });
 
     }
 
@@ -292,6 +313,8 @@ public class ShopInformationActivity extends BaseActivity {
         flowlayout2 = (TagFlowLayout) popupView.findViewById(R.id.id_flowlayout2);
         tv_type_name1 = (TextView) popupView.findViewById(R.id.tv_type_name1);
         tv_type_name2 = (TextView) popupView.findViewById(R.id.tv_type_name2);
+        nas_goodinfo_num = (AddSubView) popupView.findViewById(R.id.nas_goodinfo_num);
+        bt_goodinfo_confim = (TextView) popupView.findViewById(R.id.bt_goodinfo_confim);
         if (sku_info.size() == 1) {
             setInfo1(sku_info);
         } else {
@@ -302,10 +325,35 @@ public class ShopInformationActivity extends BaseActivity {
         tv_name.setText(bean.getData().getItems().getOwner_name());
         tv_info.setText(bean.getData().getItems().getGoods_name());
         tv_price.setText("￥" + bean.getData().getItems().getPrice());
+
+        // 设置最大值和当前值
+        nas_goodinfo_num.setMaxValue(100);
+        //内存数据
+        bean.getData().getItems().setNumber(1);
+        //显示的
+        nas_goodinfo_num.setValue(bean.getData().getItems().getNumber());
+
+
+
+        nas_goodinfo_num.setOnNumberChangeListener(new AddSubView.OnNumberChangeListener() {
+            @Override
+            public void onNumberChange(int value) {
+                bean.getData().getItems().setNumber(value);
+            }
+        });
+
         iv_finish_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mPopupWindow.dismiss();
+            }
+        });
+        bt_goodinfo_confim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPopupWindow.dismiss();
+                //添加购物车
+                Toast.makeText(ShopInformationActivity.this, "添加购物车成功", Toast.LENGTH_SHORT).show();
             }
         });
         mPopupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, true);

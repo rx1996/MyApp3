@@ -75,7 +75,7 @@
         android:id="@+id/id_flowlayout1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
+        android:padding="10dp"
         zhy:max_select="1"
         >
     </com.zhy.view.flowlayout.TagFlowLayout>
@@ -91,7 +91,7 @@
         android:id="@+id/id_flowlayout2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
+        android:padding="10dp"
         zhy:max_select="1"
         >
     </com.zhy.view.flowlayout.TagFlowLayout>
@@ -103,7 +103,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <myapplication.liangcang.shopcat.view.AddSubView
-        android:id="@+id/AddSubView"
+        android:id="@+id/nas_goodinfo_num"
         app:maxValue="12"
         app:minValue="1"
         app:numberAddBackground="@drawable/goods_add_btn"
@@ -114,6 +114,7 @@
 
     </myapplication.liangcang.shopcat.view.AddSubView>
     <TextView
+        android:id="@+id/bt_goodinfo_confim"
         android:text="确定"
         android:textSize="20sp"
         android:gravity="center"
