@@ -233,6 +233,15 @@ public class ShopInformationBean {
             private List<SkuInvBean> sku_inv;
             private List<GoodsInfoBean> goods_info;
             private int number = 1;
+            private boolean isCheck =true;
+
+            public boolean isCheck() {
+                return isCheck;
+            }
+
+            public void setCheck(boolean check) {
+                isCheck = check;
+            }
 
             public int getNumber() {
                 return number;

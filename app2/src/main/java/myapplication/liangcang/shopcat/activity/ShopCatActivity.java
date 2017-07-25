@@ -1,5 +1,6 @@
 package myapplication.liangcang.shopcat.activity;
 
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +19,7 @@ import myapplication.liangcang.R;
 import myapplication.liangcang.base.BaseActivity;
 import myapplication.liangcang.common.MyApplication;
 import myapplication.liangcang.shop.bean.ShopInformationBean;
+import myapplication.liangcang.shopcat.adapter.ShoppingCartAdapter;
 import myapplication.liangcang.shopcat.utils.CartStorage;
 
 public class ShopCatActivity extends BaseActivity {
@@ -46,6 +48,8 @@ public class ShopCatActivity extends BaseActivity {
     LinearLayout llCheckAll;
     @Bind(R.id.activity_shop_cat)
     LinearLayout activityShopCat;
+    private ArrayList<ShopInformationBean> datas;
+    private ShoppingCartAdapter adapter;
 
     @Override
     public void initListener() {
@@ -54,9 +58,12 @@ public class ShopCatActivity extends BaseActivity {
 
     @Override
     public void initData() {
-        ArrayList<ShopInformationBean> allData = CartStorage.getInstance(MyApplication.getContext()).getAllData();
-        for(int i = 0; i < allData.size(); i++) {
-            Log.e("TAG", ""+allData.get(i).toString());
+        datas = CartStorage.getInstance(MyApplication.getContext()).getAllData();
+        if(datas != null && datas.size() >0){
+            adapter = new ShoppingCartAdapter(ShopCatActivity.this,datas);
+            recyclerview.setAdapter(adapter);
+            //设置布局管理器
+            recyclerview.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         }
     }
 
