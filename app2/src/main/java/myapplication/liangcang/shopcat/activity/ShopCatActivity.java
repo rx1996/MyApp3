@@ -83,7 +83,11 @@ public class ShopCatActivity extends BaseActivity {
                 Toast.makeText(ShopCatActivity.this, "编辑", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.checkbox_all:
-                Toast.makeText(ShopCatActivity.this, "全选", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(ShopCatActivity.this, "全选", Toast.LENGTH_SHORT).show();
+                boolean checked = checkboxAll.isChecked();
+                adapter.checkAll_none(checked);
+                //重新计算价格
+                adapter.showTotalPrice();
                 break;
             case R.id.btn_check_out:
                 Toast.makeText(ShopCatActivity.this, "结算", Toast.LENGTH_SHORT).show();
