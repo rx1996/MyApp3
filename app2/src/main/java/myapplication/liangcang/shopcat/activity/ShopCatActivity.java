@@ -40,8 +40,8 @@ public class ShopCatActivity extends BaseActivity {
     TextView tvBaoyouPrice;
     @Bind(R.id.checkbox_all)
     CheckBox checkboxAll;
-    @Bind(R.id.tv_shopcart_total)
-    TextView tvShopcartTotal;
+    @Bind(R.id.tv_shopcart_price)
+    TextView tvShopcartPrice;
     @Bind(R.id.btn_check_out)
     Button btnCheckOut;
     @Bind(R.id.ll_check_all)
@@ -60,7 +60,7 @@ public class ShopCatActivity extends BaseActivity {
     public void initData() {
         datas = CartStorage.getInstance(MyApplication.getContext()).getAllData();
         if(datas != null && datas.size() >0){
-            adapter = new ShoppingCartAdapter(ShopCatActivity.this,datas);
+            adapter = new ShoppingCartAdapter(ShopCatActivity.this,datas,checkboxAll,tvShopcartPrice,btnCheckOut);
             recyclerview.setAdapter(adapter);
             //设置布局管理器
             recyclerview.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));

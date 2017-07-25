@@ -3,6 +3,7 @@ package myapplication.liangcang.shopcat.adapter;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -28,12 +29,36 @@ import myapplication.liangcang.shopcat.view.AddSubView;
 public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapter.MyViewHolder> {
     private final ShopCatActivity context;
     private final ArrayList<ShopInformationBean> datas;
+    private final CheckBox checkboxAll;
+    private final TextView tvShopcartPrice;
+    private final Button btnCheckOut;
 
 
-
-    public ShoppingCartAdapter(ShopCatActivity context, ArrayList<ShopInformationBean> datas) {
+    public ShoppingCartAdapter(ShopCatActivity context, ArrayList<ShopInformationBean> datas, CheckBox checkboxAll, TextView tvShopcartPrice, Button btnCheckOut) {
         this.context = context;
         this.datas = datas;
+        this.checkboxAll = checkboxAll;
+        this.tvShopcartPrice = tvShopcartPrice;
+        this.btnCheckOut = btnCheckOut;
+        showTotalPrice();
+        checkAll();
+    }
+    public void showTotalPrice() {
+        tvShopcartPrice.setText("合计:"+getTotalPrice());
+
+    }
+    public double getTotalPrice() {
+        double result = 0;
+        if(datas != null && datas.size() > 0){
+            for(int i = 0; i < datas.size(); i++) {
+                ShopInformationBean infoBean = datas.get(i);
+                //判断是否勾选
+                if(infoBean.getData().getItems().isCheck()){
+                    result = result + infoBean.getData().getItems().getNumber()* Double.parseDouble(infoBean.getData().getItems().getPrice());
+                }
+            }
+        }
+        return result;
     }
 
     @Override
@@ -101,8 +126,35 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
                     ShopInformationBean infoBean = datas.get(getLayoutPosition());
                     infoBean.getData().getItems().setCheck(!infoBean.getData().getItems().isCheck());
                     notifyItemChanged(getLayoutPosition());
+                    showTotalPrice();
+                    checkAll();
                 }
             });
+        }
+    }
+
+    private void checkAll() {
+        if(datas != null && datas.size() >0){
+            int number = 0;
+
+            for(int i = 0; i < datas.size(); i++) {
+                ShopInformationBean infoBean = datas.get(i);
+                //只要有一个不选中就设置非全选
+                if(!infoBean.getData().getItems().isCheck()){
+                    checkboxAll.setChecked(false);
+                }else{
+                    number ++;
+                }
+            }
+
+            if(number ==datas.size()){
+                checkboxAll.setChecked(true);
+            }
+
+
+        }else {
+            //没有数据
+            checkboxAll.setChecked(false);
         }
     }
 }

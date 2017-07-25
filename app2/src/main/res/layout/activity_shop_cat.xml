@@ -228,7 +228,7 @@
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/tv_shopcart_total"
+                    android:id="@+id/tv_shopcart_price"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
