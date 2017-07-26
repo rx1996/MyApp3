@@ -38,4 +38,5 @@ dependencies {
     compile 'com.android.support:percent:24.2.1'
     compile 'com.youth.banner:banner:1.4.9'
     compile project(':flowlayout-lib')
+    compile files('libs/alipaySdk-20160825.jar')
 }
