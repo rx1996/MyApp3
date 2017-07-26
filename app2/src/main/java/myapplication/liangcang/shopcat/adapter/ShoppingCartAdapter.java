@@ -75,14 +75,35 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
                 .placeholder(R.drawable.ic_login_logo).
                 error(R.drawable.ic_login_logo).
                 diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.ivGov);
+        Glide.with(context).load(infoBean.getData().getItems().getGoods_image())
+                .placeholder(R.drawable.ic_login_logo).
+                error(R.drawable.ic_login_logo).
+                diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.ivGov2);
         holder.tvDescGov.setText(infoBean.getData().getItems().getGoods_name());
         holder.tvPriceGov.setText("￥" + infoBean.getData().getItems().getPrice());
+        holder.tvDescGov2.setText(infoBean.getData().getItems().getGoods_name());
+        holder.tvPriceGov2.setText("￥" + infoBean.getData().getItems().getPrice());
         holder.nasGoodinfoNum.setValue(infoBean.getData().getItems().getNumber());
         holder.nasGoodinfoNum.setMinValue(1);
         //库存
         holder.nasGoodinfoNum.setMaxValue(200);
-
+        if(infoBean.getData().getItems().isShow()) {
+            holder.ll1.setVisibility(View.VISIBLE);
+            holder.rl2.setVisibility(View.GONE);
+        }else {
+            holder.ll1.setVisibility(View.GONE);
+            holder.rl2.setVisibility(View.VISIBLE);
+        }
     }
+
+    public void showDelete(boolean isShow){
+        for(int i = 0; i < datas.size(); i++) {
+            ShopInformationBean bean = datas.get(i);
+            bean.getData().getItems().setShow(isShow);
+            notifyItemChanged(i);
+        }
+    }
+
 
     @Override
     public int getItemCount() {

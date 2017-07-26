@@ -234,6 +234,15 @@ public class ShopInformationBean {
             private List<GoodsInfoBean> goods_info;
             private int number = 1;
             private boolean isCheck =true;
+            private boolean isShow = true;
+
+            public boolean isShow() {
+                return isShow;
+            }
+
+            public void setShow(boolean show) {
+                isShow = show;
+            }
 
             public boolean isCheck() {
                 return isCheck;

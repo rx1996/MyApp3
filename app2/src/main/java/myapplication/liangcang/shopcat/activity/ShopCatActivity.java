@@ -51,9 +51,20 @@ public class ShopCatActivity extends BaseActivity {
     private ArrayList<ShopInformationBean> datas;
     private ShoppingCartAdapter adapter;
 
+    //编辑状态
+    private static final int ACTION_EDIT = 1;
+    //完成状态
+    private static final int ACTION_COMPLETE = 2;
+
     @Override
     public void initListener() {
 
+    }
+
+    @Override
+    public void initView() {
+        super.initView();
+        tvShopcartEdit.setTag(ACTION_EDIT);
     }
 
     @Override
@@ -81,6 +92,19 @@ public class ShopCatActivity extends BaseActivity {
                 break;
             case R.id.tv_shopcart_edit:
                 Toast.makeText(ShopCatActivity.this, "编辑", Toast.LENGTH_SHORT).show();
+
+                int tag = (int) tvShopcartEdit.getTag();
+                if(tag ==ACTION_EDIT){//编辑
+                    //切换完成状态
+                    tvShopcartEdit.setText("编辑");
+                    tvShopcartEdit.setTag(ACTION_COMPLETE);
+                    adapter.showDelete(true);
+                }else{
+                    tvShopcartEdit.setText("完成");
+                    tvShopcartEdit.setTag(ACTION_EDIT);
+                    adapter.showDelete(false);
+
+                }
                 break;
             case R.id.checkbox_all:
 //                Toast.makeText(ShopCatActivity.this, "全选", Toast.LENGTH_SHORT).show();
