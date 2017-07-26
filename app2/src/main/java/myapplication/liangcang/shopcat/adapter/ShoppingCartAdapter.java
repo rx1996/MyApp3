@@ -20,6 +20,7 @@ import butterknife.ButterKnife;
 import myapplication.liangcang.R;
 import myapplication.liangcang.shop.bean.ShopInformationBean;
 import myapplication.liangcang.shopcat.activity.ShopCatActivity;
+import myapplication.liangcang.shopcat.utils.CartStorage;
 import myapplication.liangcang.shopcat.view.AddSubView;
 
 /**
@@ -71,6 +72,7 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
     public void onBindViewHolder(MyViewHolder holder, int position) {
         final ShopInformationBean infoBean = datas.get(position);
         holder.checkboxAll.setChecked(infoBean.getData().getItems().isCheck());
+        holder.checkboxAll2.setChecked(infoBean.getData().getItems().isCheck());
         Glide.with(context).load(infoBean.getData().getItems().getGoods_image())
                 .placeholder(R.drawable.ic_login_logo).
                 error(R.drawable.ic_login_logo).
@@ -104,6 +106,23 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
         }
     }
 
+    public void deleteData() {
+
+        if(datas != null && datas.size() > 0){
+
+            for(int i = 0; i < datas.size(); i++) {
+
+                ShopInformationBean bean = datas.get(i);
+                if(bean.getData().getItems().isCheck()){
+                    datas.remove(bean);
+                    //同步到本地
+                    CartStorage.getInstance(context).deleteData(bean);
+                    notifyItemRemoved(i);
+                    i--;
+                }
+            }
+        }
+    }
 
     @Override
     public int getItemCount() {
@@ -148,6 +167,13 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
                     infoBean.getData().getItems().setCheck(!infoBean.getData().getItems().isCheck());
                     notifyItemChanged(getLayoutPosition());
                     showTotalPrice();
+                    checkAll();
+                }
+            });
+            tvShanchu.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    deleteData();
                     checkAll();
                 }
             });
