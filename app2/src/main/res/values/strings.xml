@@ -4,4 +4,5 @@
     <string name="daren_tuijian">推荐\n%1$s</string>
     <string name="daren_guanzhu">关注\n%1$s</string>
     <string name="daren_fensi">粉丝\n%1$s</string>
+    <string name="share" >标题</string>
 </resources>
